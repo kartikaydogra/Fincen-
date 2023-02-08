@@ -1,0 +1,19 @@
+LoanID = LoanID = [required]
+BorrowerFirstName = PersonNameComponent = [required]
+BorrowerMiddleName = PersonMiddleName = 
+BorrowerLastName = PersonNameComponent = [required]
+BorrowerNameSuffix = PersonNameSuffix = 
+BorrowerStreetAddress = StreetAddress = [required]
+BorrowerStreetAddress2 = Apartment = 
+BorrowerCity = City = [required]
+BorrowerState = State = [required]
+BorrowerZipCode = ZIP = [required]
+BorrowerHomePhone = PhoneNumber = 
+BorrowerWorkPhone = PhoneNumber = 
+BorrowerMobilePhone = PhoneNumber = 
+BorrowerEmail = EMail = [required]
+BorrowerSSN = SSN = [required]
+BorrowerDOB = date = [required]
+BorrowerIDType = IntegerUnsigned = [required]
+BorrowerIDNumber = DriversLicense = [required]
+BorrowerIDState = State = [required]

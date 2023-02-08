@@ -1,0 +1,19 @@
+AccountID = string = [required]
+FirstName = PersonNameComponent = [required]
+MiddleName = PersonMiddleName = 
+LastName = PersonNameComponent = [required]
+NameSuffix = PersonNameSuffix = 
+StreetAddress = StreetAddress = [required]
+StreetAddress2 = Apartment = 
+City = City = [required]
+State = State = [required]
+ZipCode = ZIP = [required]
+Phone1 = PhoneNumber = 
+Phone2 = PhoneNumber = 
+Phone3 = PhoneNumber = 
+Email = EMail = [required]
+SSN = SSN = [required]
+DOB = date = [required]
+IDType = IntegerUnsigned = [required]
+IDNumber = DriversLicense = [required]
+IDState = State = [required]

@@ -1,0 +1,22 @@
+export PERL5LIB=/home/vinod/Finance_Crimes/Code/code/pm
+
+/home/vinod/Finance_Crimes/Code/code/pl/OFACtoCSV.pl -AuxDataDir /home/vinod/Finance_Crimes/Code/code/auxdata -in /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.04.07.2020.xml -out /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.04.07.2020.csv -log /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.04.07.2020.log
+
+/home/vinod/Finance_Crimes/Code/code/pl/SalesforceToEntities.pl -in /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SF-Combined/FileList.SF.txt -out /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SF-Combined/SFExport.04.07.2020.tsv
+
+ls /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/DB_Export/FinCENExport.04.07.2020.tsv | /home/vinod/Finance_Crimes/Code/code/pl/FindEntities.pl -Entities /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Personal.04.07.2020.csv -AuxDataDir /home/vinod/Finance_Crimes/Code/code/auxdata -Format /home/vinod/Finance_Crimes/Code/code/config/FindEntitiesBorrowerFileFormat.txt -log /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Personal.04.07.2020.log -out /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Personal.04.07.2020.out
+
+ls /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/DB_Export/FinCENExport.04.07.2020.tsv | /home/vinod/Finance_Crimes/Code/code/pl/FindEntities.pl -Entities /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Business.04.07.2020.csv -AuxDataDir /home/vinod/Finance_Crimes/Code/code/auxdata -Format /home/vinod/Finance_Crimes/Code/code/config/FindEntitiesBorrowerFileFormat.txt -log /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Business.04.07.2020.log -out /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Business.04.07.2020.out
+
+ls /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/DB_Export/FinCENExport.04.07.2020.tsv | /home/vinod/Finance_Crimes/Code/code/pl/FindEntities.pl -Entities /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.04.07.2020.csv -AuxDataDir /home/vinod/Finance_Crimes/Code/code/auxdata -Format /home/vinod/Finance_Crimes/Code/code/config/FindEntitiesBorrowerFileFormat.txt -log /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.04.07.2020.log -out /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.04.07.2020.out
+
+ls /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SF-Combined/SFExport.04.07.2020.tsv     | /home/vinod/Finance_Crimes/Code/code/pl/FindEntities.pl -Entities /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Personal.04.07.2020.csv -AuxDataDir /home/vinod/Finance_Crimes/Code/code/auxdata -Format /home/vinod/Finance_Crimes/Code/code/config/FindEntitiesInputFileFormat.txt -log /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Personal.SF.04.07.2020.log -out /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Personal.SF.04.07.2020.out
+
+ls /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SF-Combined/SFExport.04.07.2020.tsv     | /home/vinod/Finance_Crimes/Code/code/pl/FindEntities.pl -Entities /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Business.04.07.2020.csv -AuxDataDir /home/vinod/Finance_Crimes/Code/code/auxdata -Format /home/vinod/Finance_Crimes/Code/code/config/FindEntitiesInputFileFormat.txt -log /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Business.SF.04.07.2020.log -out /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/FinCEN/FinCEN.Business.SF.04.07.2020.out
+
+ls /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SF-Combined/SFExport.04.07.2020.tsv     | /home/vinod/Finance_Crimes/Code/code/pl/FindEntities.pl -Entities /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.04.07.2020.csv -AuxDataDir /home/vinod/Finance_Crimes/Code/code/auxdata -Format /home/vinod/Finance_Crimes/Code/code/config/FindEntitiesInputFileFormat.txt -log /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.SF.04.07.2020.log -out /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SDN/sdn.SF.04.07.2020.out
+
+
+cat /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/DB_Export/FinCENExport.04.07.2020.tsv | perl -e 'while (<>) { s/^.*?\t//; $H{lc($_)} = 1 }; print(scalar(keys(%H)), "\n")'
+
+cat /home/vinod/Finance_Crimes/Scrubs/04.07.2020/LMS/SF-Combined/SFExport.04.07.2020.tsv | perl -e 'while (<>) { s/^.*?\t//; $H{lc($_)} = 1 }; print(scalar(keys(%H)), "\n")'
